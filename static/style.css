@@ -1,0 +1,234 @@
+/* ===== NEO BRUTALISM — Number System Converter ===== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #0a0a0a;
+    --white: #fffef0;
+    --yellow: #FFE500;
+    --pink:   #FF3CAC;
+    --blue:   #2DFAFF;
+    --green:  #00FF87;
+    --border: 3px solid #0a0a0a;
+    --shadow: 5px 5px 0px #0a0a0a;
+    --shadow-hover: 8px 8px 0px #0a0a0a;
+    --font: 'Space Grotesk', sans-serif;
+}
+
+body {
+    background-color: var(--yellow);
+    background-image: repeating-linear-gradient(
+        0deg, transparent, transparent 39px, rgba(0,0,0,0.08) 39px, rgba(0,0,0,0.08) 40px
+    ), repeating-linear-gradient(
+        90deg, transparent, transparent 39px, rgba(0,0,0,0.08) 39px, rgba(0,0,0,0.08) 40px
+    );
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px 60px;
+    font-family: var(--font);
+    color: var(--black);
+}
+
+/* ─── HEADER BADGE ─── */
+.page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    background: var(--black);
+    color: var(--yellow);
+    padding: 10px 24px;
+    border: var(--border);
+    display: inline-block;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+/* ─── MAIN CARD ─── */
+#sec {
+    background: var(--white);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    width: 100%;
+    max-width: 440px;
+}
+
+/* ─── LABELS ─── */
+label {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+/* ─── INPUT ─── */
+#num {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 10px 0 16px;
+    border: var(--border);
+    background: var(--white);
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: 600;
+    outline: none;
+    transition: box-shadow 0.15s;
+}
+#num:focus {
+    box-shadow: var(--shadow);
+    background: #fffde0;
+}
+
+/* ─── SECTION DIVIDER ─── */
+.section-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--black);
+    background: var(--pink);
+    border: var(--border);
+    padding: 4px 10px;
+    display: inline-block;
+    margin: 10px 0 8px;
+}
+
+/* ─── RADIO GROUP ─── */
+.radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 2px solid var(--black);
+    background: var(--white);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.1s, box-shadow 0.1s;
+    user-select: none;
+}
+.radio-option:hover {
+    background: var(--blue);
+}
+.radio-option input[type="radio"] {
+    accent-color: var(--black);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin: 0;
+}
+
+input[type="radio"]:checked + label,
+input[type="radio"]:checked ~ label {
+    color: var(--pink);
+}
+
+/* ─── BUTTONS ─── */
+button {
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 22px;
+    border: var(--border);
+    cursor: pointer;
+    transition: box-shadow 0.12s, transform 0.12s;
+    box-shadow: var(--shadow);
+}
+button:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translate(-2px, -2px);
+}
+button:active {
+    box-shadow: 2px 2px 0 var(--black);
+    transform: translate(3px, 3px);
+}
+
+#con {
+    background: var(--green);
+    color: var(--black);
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    font-size: 17px;
+}
+
+.btn-history {
+    background: var(--blue);
+    color: var(--black);
+}
+.btn-quiz {
+    background: var(--pink);
+    color: var(--white);
+}
+.btn-back {
+    background: var(--yellow);
+    color: var(--black);
+}
+.btn-clear {
+    background: #ff4d4d;
+    color: var(--white);
+}
+.btn-again {
+    background: var(--blue);
+    color: var(--black);
+}
+.btn-submit {
+    background: var(--green);
+    color: var(--black);
+    padding: 14px 36px;
+    font-size: 17px;
+}
+
+/* ─── NAV BUTTONS ROW ─── */
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+.nav-buttons a {
+    text-decoration: none;
+}
+
+/* ─── RESULT BOX ─── */
+#para {
+    margin-top: 16px;
+    margin-bottom: 4px;
+    min-height: 46px;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    border: var(--border);
+    background: var(--blue);
+    padding: 12px 16px;
+    word-break: break-all;
+    box-shadow: var(--shadow);
+}
+#para hr { display: none; }
+
+/* ─── DIVIDER ─── */
+.nb-hr {
+    border: none;
+    border-top: 3px solid var(--black);
+    margin: 16px 0;
+}
