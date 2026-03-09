@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result 🏆</title>
+    <link rel="icon" href="{{ ic }}" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fffef0;
+            --yellow: #FFE500;
+            --pink: #FF3CAC;
+            --blue: #2DFAFF;
+            --green: #00FF87;
+            --border: 3px solid #0a0a0a;
+            --shadow: 5px 5px 0px #0a0a0a;
+            --font: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--green);
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0, 0, 0, 0.07) 39px, rgba(0, 0, 0, 0.07) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0, 0, 0, 0.07) 39px, rgba(0, 0, 0, 0.07) 40px);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            font-family: var(--font);
+            color: var(--black);
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            background: var(--black);
+            color: var(--green);
+            padding: 10px 24px;
+            border: var(--border);
+            display: inline-block;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        #sec {
+            background: var(--white);
+            border: var(--border);
+            box-shadow: var(--shadow);
+            padding: 36px 32px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .score-badge {
+            display: inline-block;
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--yellow);
+            border: var(--border);
+            box-shadow: var(--shadow);
+            padding: 14px 30px;
+            margin: 12px 0;
+            letter-spacing: -2px;
+        }
+
+        .score-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        #hola {
+            background: var(--blue);
+            border: var(--border);
+            box-shadow: var(--shadow);
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .nb-hr {
+            border: none;
+            border-top: 3px solid var(--black);
+            margin: 20px 0;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        button {
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 12px 22px;
+            border: var(--border);
+            cursor: pointer;
+            transition: box-shadow 0.12s, transform 0.12s;
+            box-shadow: var(--shadow);
+        }
+
+        button:hover {
+            box-shadow: 8px 8px 0 var(--black);
+            transform: translate(-2px, -2px);
+        }
+
+        button:active {
+            box-shadow: 2px 2px 0 var(--black);
+            transform: translate(3px, 3px);
+        }
+
+        .btn-home {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .btn-again {
+            background: var(--pink);
+            color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-title">🏆 Quiz Result</div>
+
+    <div id="sec">
+        <p class="score-label">Your Score</p>
+        <div class="score-badge">{{ score }}<span style="font-size:2rem;font-weight:600">/10</span></div>
+
+        <div id="hola">{{ message }}</div>
+
+        <div class="nb-hr"></div>
+
+        <div class="btn-row">
+            <a href="/"><button class="btn-home">🏠 Home</button></a>
+            <a href="/quiz"><button class="btn-again">🔄 Try Again</button></a>
+        </div>
+    </div>
+
+</body>
+
+</html>

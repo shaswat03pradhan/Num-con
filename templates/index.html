@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number System Converter 🔢</title>
+    <link rel="icon" href="{{ ic }}" type="image/png">
+    <link rel="stylesheet" href="{{ css }}">
+</head>
+
+<body>
+
+    <div class="page-title">🔢 NUM Converter</div>
+
+    <div id="sec">
+        <form action="/" method="post">
+
+            <label for="num">Enter Your Number</label>
+            <input id="num" autofocus type="text" name="input" autocomplete="off" placeholder="e.g. 1010, FF, 42…">
+
+            <button type="submit" id="con">⚡ Convert</button>
+
+            <div class="nb-hr"></div>
+
+            <span class="section-label">Convert From</span>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="from" value="2"> Binary
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="from" value="8"> Octal
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="from" value="10"> Decimal
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="from" value="16"> Hexadecimal
+                </label>
+            </div>
+
+            <div class="nb-hr"></div>
+
+            <span class="section-label">Convert To</span>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="to" value="2"> Binary
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="to" value="8"> Octal
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="to" value="10"> Decimal
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="to" value="16"> Hexadecimal
+                </label>
+            </div>
+
+        </form>
+
+        {% if ans is defined %}
+        <div id="para">{{ q }}{{ ans }}</div>
+        {% endif %}
+
+        <div class="nav-buttons">
+            <a href="/history" title="Check past history">
+                <button class="btn-history">📄 History</button>
+            </a>
+            <a href="/quiz" title="Take a quiz">
+                <button class="btn-quiz">🧠 Take Quiz</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

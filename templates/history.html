@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History 📄</title>
+    <link rel="icon" href="{{ ic }}" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #fffef0;
+            --yellow: #FFE500;
+            --pink: #FF3CAC;
+            --blue: #2DFAFF;
+            --green: #00FF87;
+            --border: 3px solid #0a0a0a;
+            --shadow: 5px 5px 0px #0a0a0a;
+            --font: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--blue);
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0, 0, 0, 0.07) 39px, rgba(0, 0, 0, 0.07) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0, 0, 0, 0.07) 39px, rgba(0, 0, 0, 0.07) 40px);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px 60px;
+            font-family: var(--font);
+            color: var(--black);
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            background: var(--black);
+            color: var(--yellow);
+            padding: 10px 24px;
+            border: var(--border);
+            display: inline-block;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        #hist {
+            background: var(--white);
+            border: var(--border);
+            box-shadow: var(--shadow);
+            padding: 28px 24px;
+            width: 100%;
+            max-width: 580px;
+        }
+
+        .empty-msg {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #555;
+            padding: 18px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background: var(--black);
+            color: var(--yellow);
+            padding: 10px 14px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--black);
+            text-align: left;
+        }
+
+        td {
+            padding: 10px 14px;
+            border: 2px solid var(--black);
+            font-size: 15px;
+            font-weight: 600;
+            background: var(--white);
+            word-break: break-all;
+        }
+
+        tr:nth-child(even) td {
+            background: #f0ffe8;
+        }
+
+        tr:hover td {
+            background: var(--yellow);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        button {
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 12px 22px;
+            border: var(--border);
+            cursor: pointer;
+            transition: box-shadow 0.12s, transform 0.12s;
+            box-shadow: var(--shadow);
+        }
+
+        button:hover {
+            box-shadow: 8px 8px 0 var(--black);
+            transform: translate(-2px, -2px);
+        }
+
+        button:active {
+            box-shadow: 2px 2px 0 var(--black);
+            transform: translate(3px, 3px);
+        }
+
+        .btn-clear {
+            background: #ff4d4d;
+            color: var(--white);
+        }
+
+        .btn-back {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-title">📄 History</div>
+
+    <div id="hist">
+        {% if Table %}
+        <table>
+            <tr>
+                <th>Input</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Result</th>
+            </tr>
+            {% for data in Table %}
+            <tr>
+                <td>{{ data["input_no"] }}</td>
+                <td>{{ data["from"] }}</td>
+                <td>{{ data["to"] }}</td>
+                <td>{{ data["result"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p class="empty-msg">📭 No history yet!</p>
+        {% endif %}
+
+        <div class="btn-row">
+            <form method="post" action="/history" style="display:inline;">
+                <button type="submit" class="btn-clear">🗑 Clear All</button>
+            </form>
+            <a href="/">
+                <button class="btn-back">◀ Back Home</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
